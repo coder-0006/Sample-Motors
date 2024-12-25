@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        #form{
+            border: 2px solid black;
+            width: 500px;
+            height: 250px;
+            line-height: 25px;
+            padding: 20px;
+            margin: 80px auto;
+            background: rgb(221, 215, 215);
+            border-radius: 20px;
+        }
+        #submit{
+            cursor: pointer;
+            width: 60px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="index4.html" id="form">
+        <label for="email">Email:</label>
+        <input type="email" id="email"><br><br>
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password"><br><br>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password"><br><br>
+        <input type="checkbox" name="checkbox" id="checkboxid">
+        <label for="checkbox">Agree to terms and conditions</label>
+        <input type="submit" value="Sign in" id="submit">
+    </form>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(){
+            
+            const a  = document.getElementById("email").value
+            const b  = document.getElementById("contact").value
+            const c  = document.getElementById("password").value
+            const d  = document.getElementById("confirm-password").value
+            const e = document.getElementById("checkboxid")
+            let isChecked = e.checked
+
+            sessionStorage.setItem("email", a)
+            sessionStorage.setItem("contact", b)
+            sessionStorage.setItem("password", c)
+            sessionStorage.setItem("confirm-password", d)
+
+            console.log(isChecked)
+
+            if(a==""||b==""||c==""||d==""){
+                alert("All fields are mandatory!")
+                event.preventDefault();
+                return false
+            }
+            else if(b.length<10||b.length>10){
+                alert("Contact number should be of 10 digits!")
+                event.preventDefault();
+                return false
+            }
+            else if(isNaN(b)){
+                alert("Enter valid contact number!")
+                event.preventDefault();
+                return false
+            }
+            else if(c!=d){
+                alert("Enter same passwords!")
+                event.preventDefault();
+                return false
+            }
+            else if(!isChecked){
+                alert("Please accept T&C")
+                event.preventDefault();
+                return false
+            }
+            else{
+                return true
+            }
+            // window.location.href("index4.html")
+        })
+    </script>
+</body>
+</html>

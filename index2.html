@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-Summary</title>
+</head>
+<body>
+    <h2>Hey <span id="name"></span> thanks for contacting us!</h2>
+    <h3>Here's the message that we have received from you:</h3>
+    <p><span id="message"></span></p>
+
+    <script>
+        const name = sessionStorage.getItem("user")
+        document.getElementById("name").textContent = name
+        const message = sessionStorage.getItem("msg")
+        document.getElementById("message").textContent = message
+
+        sessionStorage.clear()
+    </script>
+</body>
+</html>

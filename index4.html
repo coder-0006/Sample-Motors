@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <h1>Your form has been submitted successfully!</h1>
+    <h2>Kindly check the submitted details</h2>
+    <p>Email : <span id="email"></span></p>
+    <p>Contact : <span id="contact"></span></p>
+    <p>Password : <span id="password"></span></p>
+    <p>Confirm-Password : <span id="confirm-password"></span></p>
+    <script>
+        document.getElementById("email").textContent = sessionStorage.getItem("email")
+        document.getElementById("contact").textContent = sessionStorage.getItem("contact")
+        document.getElementById("password").textContent = sessionStorage.getItem("password")
+        document.getElementById("confirm-password").textContent = sessionStorage.getItem("confirm-password")
+
+        sessionStorage.clear();
+    </script>
+
+</body>
+</html>
